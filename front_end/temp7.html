@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Executive Pro Portfolio</title>
+  <link rel="stylesheet" href="style7.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="executive-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-content">
+        <h1 id="user-name">First Last</h1>
+        <h2 id="user-title">Professional Title</h2>
+        <div class="contact-info">
+          <p>contact@example.com</p>
+          <p>in/linkedin-profile</p>
+          <p>New York, NY</p>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="section">
+        <h3>Executive Summary</h3>
+        <p id="user-about">Executive summary goes here.</p>
+      </section>
+
+      <section class="section">
+        <h3>Key Initiatives</h3>
+        <div class="timeline" id="projects-list">
+          <!-- Projects go here -->
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const data = JSON.parse(localStorage.getItem('portfolio7Data'));
+    if (data) {
+      document.getElementById('user-name').textContent = data.name;
+      document.getElementById('user-title').textContent = data.title;
+      document.getElementById('user-about').textContent = data.about;
+
+      const projectsList = document.getElementById('projects-list');
+      data.projects.forEach(proj => {
+        const div = document.createElement('div');
+        div.className = 'timeline-item';
+        div.innerHTML = `
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4>${proj.title}</h4>
+            <p>${proj.desc}</p>
+          </div>
+        `;
+        projectsList.appendChild(div);
+      });
+    } else {
+      document.getElementById('user-name').textContent = "Sarah Jenkins";
+      document.getElementById('user-title').textContent = "Chief Technology Officer";
+      document.getElementById('user-about').textContent = "Visionary technology executive with over 15 years of experience leading digital transformation and architecting enterprise-scale solutions. Proven track record of aligning technology strategy with business objectives to drive growth, efficiency, and innovation.";
+      document.getElementById('projects-list').innerHTML = `
+        <div class='timeline-item'>
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4>Global Cloud Migration</h4>
+            <p>Spearheaded the migration of legacy systems to AWS, resulting in a 40% reduction in infrastructure costs and 99.99% uptime.</p>
+          </div>
+        </div>
+        <div class='timeline-item'>
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h4>AI Integration Strategy</h4>
+            <p>Developed and executed a comprehensive AI roadmap that automated customer service workflows, increasing efficiency by 300%.</p>
+          </div>
+        </div>`;
+    }
+  </script>
+</body>
+</html>

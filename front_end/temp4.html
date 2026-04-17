@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>| Creative Developer</title>
+ <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #f2f2f2;
+    }
+    header {
+      text-align: center;
+      padding: 80px 20px;
+      background: url('https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+    }
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      color: #00ffe7;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: -10px;
+    }
+    .socials {
+      margin-top: 20px;
+    }
+    .socials a {
+      margin: 0 10px;
+      display: inline-block;
+    }
+    .socials img {
+      width: 28px;
+      filter: brightness(0) invert(1);
+      transition: transform 0.3s;
+    }
+    .socials img:hover {
+      transform: scale(1.2);
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 960px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 2rem;
+      color: #00ffe7;
+      margin-bottom: 20px;
+    }
+    ul.skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 15px;
+      list-style: none;
+      padding: 0;
+    }
+    ul.skills li {
+      background: #1c1c1c;
+      padding: 10px;
+      border-left: 5px solid #00ffe7;
+      border-radius: 6px;
+    }
+    .project-card {
+      background: #1c1c1c;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0, 255, 231, 0.2);
+    }
+    .project-card h4 {
+      color: #00ffe7;
+      margin-bottom: 5px;
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #111;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Barath</h1>
+    <p>Creative Web Developer & Cyber Enthusiast</p>
+    <div class="socials">
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" /></a>
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" /></a>
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Email" /></a>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hi! I'm a passionate full stack developer with a love for cybersecurity and crafting responsive, elegant web apps that solve real-world challenges.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul class="skills">
+      <li>HTML5</li>
+      <li>CSS3</li>
+      <li>JavaScript</li>
+      <li>React</li>
+      <li>Node.js</li>
+      <li>MongoDB</li>
+      <li>Python</li>
+      <li>Firebase</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <h4>SecureVault</h4>
+      <p>A password manager built with encryption, user login, and secure cloud sync.</p>
+    </div>
+    <div class="project-card">
+      <h4>FoodShare App</h4>
+      <p>Connects food donors and seekers with real-time updates and location-based search.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: barath@example.com</p>
+    <p>Location: Tamil Nadu, India</p>
+  </section>
+
+  <footer>
+    <p>© 2025 . Designed with ❤️ & passion for code.</p>
+  </footer>
+
+  <script>
+  window.onload = function () {
+    const data = JSON.parse(localStorage.getItem("portfolioData"));
+    if (!data) return;
+
+    // Header update
+    document.querySelector("header h1").innerHTML = `👨‍💻 ${data.name}`;
+    document.querySelector("header p").textContent = data.title;
+
+    // About
+    document.querySelector("#about p").textContent = data.about;
+
+    // Contact
+    document.querySelector("#contact").innerHTML = `
+      <h2>Contact Me</h2>
+      <p>Email: ${data.email}</p>
+      <p>Location: ${data.location}</p>
+    `;
+
+    // Skills
+    const skillList = document.querySelector(".skills");
+    skillList.innerHTML = data.skills.map(skill => `<li>${skill}</li>`).join("");
+
+    // Projects
+    const projectCards = data.projects.map(p => `
+      <div class="project-card">
+        <h4>${p.title}</h4>
+        <p>${p.desc}</p>
+      </div>
+    `).join("");
+    document.querySelector("#projects").innerHTML = `<h2>Projects</h2>${projectCards}`;
+  };
+</script>
+
+
+</body>

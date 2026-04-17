@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> | Creative Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    /* Your existing styles remain unchanged */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #15151e);
+      color: #f2f2f2;
+      scroll-behavior: smooth;
+    }
+    /* ... (same styles as you posted) ... */
+  </style>
+</head>
+<body>
+      <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #15151e);
+      color: #f2f2f2;
+      scroll-behavior: smooth;
+    }
+    header {
+      text-align: center;
+      padding: 120px 20px 70px;
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+    }
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 4rem;
+      color: #00ffe7;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.4rem;
+      color: #cccccc;
+    }
+    .socials {
+      margin-top: 25px;
+    }
+    .socials a {
+      margin: 0 12px;
+      display: inline-block;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .socials img {
+      width: 32px;
+      filter: brightness(0) invert(1);
+    }
+    .socials a:hover {
+      transform: scale(1.2);
+      opacity: 0.8;
+    }
+    section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeIn 1s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h2 {
+      font-size: 2.5rem;
+      color: #00ffe7;
+      margin-bottom: 25px;
+      position: relative;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+    h2::after {
+      content: '';
+      width: 80px;
+      height: 3px;
+      background: #00ffe7;
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+    }
+    ul.skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      list-style: none;
+      padding: 0;
+    }
+    ul.skills li {
+      background: #262636;
+      padding: 12px 16px;
+      border-left: 5px solid #00ffe7;
+      border-radius: 6px;
+      text-align: center;
+      transition: background 0.3s ease;
+    }
+    ul.skills li:hover {
+      background: #33334f;
+    }
+    .project-card {
+      background: #1f1f2e;
+      padding: 24px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 20px rgba(0, 255, 231, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover {
+      transform: scale(1.03);
+    }
+    .project-card h4 {
+      color: #00ffe7;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .form-group {
+      margin-bottom: 24px;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      background: #2d2d3f;
+      color: #fff;
+      font-size: 1rem;
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    #submitBtn {
+      background: #00ffe7;
+      color: #000;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+    #submitBtn:hover {
+      background: #00ccb8;
+    }
+    footer {
+      text-align: center;
+      padding: 50px 20px;
+      background: #12121c;
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+  </style>
+  <header>
+    <h1 id="userName">Barath</h1>
+    <p id="userTag">Creative Web Developer & Cyber Enthusiast</p>
+    <div class="socials">
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" /></a>
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" /></a>
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="Email" /></a>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p id="aboutText">Hi! I'm a passionate full stack developer with a love for cybersecurity and crafting responsive, elegant web apps that solve real-world challenges.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul class="skills" id="skillsList">
+      <li>HTML5</li>
+      <li>CSS3</li>
+      <li>JavaScript</li>
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div id="projectsContainer"></div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Email: barath@example.com</p>
+    <p>Location: Tamil Nadu, India</p>
+  </section>
+
+  <footer>
+    <p>© 2025. Designed with ❤️ & passion for code.</p>
+  </footer>
+
+  <script>
+    const data = JSON.parse(localStorage.getItem("portfolioData"));
+
+    if (data) {
+      document.getElementById("userName").textContent = data.name;
+      document.getElementById("userTag").textContent = data.tag;
+      document.getElementById("aboutText").textContent = data.about;
+
+      // Skills
+      const skillsList = document.getElementById("skillsList");
+      const skills = data.skills.split(',').map(skill => skill.trim());
+      skillsList.innerHTML = skills.map(skill => `<li>${skill}</li>`).join('');
+
+      // Projects
+      const container = document.getElementById("projectsContainer");
+      data.projects.forEach(project => {
+        const card = document.createElement("div");
+        card.className = "project-card";
+        card.innerHTML = `<h4>${project.title}</h4><p>${project.desc}</p>`;
+        container.appendChild(card);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #15151e);
+      color: #f2f2f2;
+      scroll-behavior: smooth;
+    }
+    header {
+      text-align: center;
+      padding: 120px 20px 70px;
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+    }
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 4rem;
+      color: #00ffe7;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.4rem;
+      color: #cccccc;
+    }
+    .socials {
+      margin-top: 25px;
+    }
+    .socials a {
+      margin: 0 12px;
+      display: inline-block;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    .socials img {
+      width: 32px;
+      filter: brightness(0) invert(1);
+    }
+    .socials a:hover {
+      transform: scale(1.2);
+      opacity: 0.8;
+    }
+    section {
+      padding: 80px 20px;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeIn 1s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h2 {
+      font-size: 2.5rem;
+      color: #00ffe7;
+      margin-bottom: 25px;
+      position: relative;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+    h2::after {
+      content: '';
+      width: 80px;
+      height: 3px;
+      background: #00ffe7;
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+    }
+    ul.skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      list-style: none;
+      padding: 0;
+    }
+    ul.skills li {
+      background: #262636;
+      padding: 12px 16px;
+      border-left: 5px solid #00ffe7;
+      border-radius: 6px;
+      text-align: center;
+      transition: background 0.3s ease;
+    }
+    ul.skills li:hover {
+      background: #33334f;
+    }
+    .project-card {
+      background: #1f1f2e;
+      padding: 24px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 0 20px rgba(0, 255, 231, 0.3);
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover {
+      transform: scale(1.03);
+    }
+    .project-card h4 {
+      color: #00ffe7;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .form-group {
+      margin-bottom: 24px;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      background: #2d2d3f;
+      color: #fff;
+      font-size: 1rem;
+    }
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    #submitBtn {
+      background: #00ffe7;
+      color: #000;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+    #submitBtn:hover {
+      background: #00ccb8;
+    }
+    footer {
+      text-align: center;
+      padding: 50px 20px;
+      background: #12121c;
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+  </style>
+
+<body>
+  <!-- form.html -->
+  <section id="form">
+    <h2>Fill to Generate Portfolio</h2>
+    <div class="form-group">
+      <input type="text" id="inputName" placeholder="Your Name" />
+    </div>
+    <div class="form-group">
+      <input type="text" id="inputTag" placeholder="Your Tagline (e.g., Web Developer)" />
+    </div>
+    <div class="form-group">
+      <textarea id="inputAbout" placeholder="About You"></textarea>
+    </div>
+    <div class="form-group">
+      <input type="text" id="inputSkills" placeholder="Skills (comma separated)" />
+    </div>
+    <div class="form-group">
+      <input type="text" id="projectTitle" placeholder="Project Title" />
+      <textarea id="projectDesc" placeholder="Project Description"></textarea>
+    </div>
+    <button id="submitBtn">Generate Portfolio</button>
+  </section>
+
+  <script>
+    document.getElementById("submitBtn").addEventListener("click", function () {
+      const name = document.getElementById("inputName").value;
+      const tag = document.getElementById("inputTag").value;
+      const about = document.getElementById("inputAbout").value;
+      const skills = document.getElementById("inputSkills").value;
+      const projectTitle = document.getElementById("projectTitle").value;
+      const projectDesc = document.getElementById("projectDesc").value;
+
+      const portfolioData = {
+        name, tag, about, skills,
+        projects: [{ title: projectTitle, desc: projectDesc }]
+      };
+
+      localStorage.setItem("portfolioData", JSON.stringify(portfolioData));
+      window.location.href = "temp5.html"; // Redirect to next page
+    });
+  </script>
+</body>
+</html>
+
+    
+
+  
+</body>
+</html>

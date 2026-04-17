@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg-color: #050505;
+  --card-bg: rgba(20, 20, 20, 0.6);
+  --text-main: #f5f5f5;
+  --text-muted: #a3a3a3;
+  --accent: #00d2ff;
+  --accent-glow: rgba(0, 210, 255, 0.4);
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg-color) radial-gradient(circle at 50% 0%, rgba(0, 210, 255, 0.1) 0%, transparent 60%);
+  color: var(--text-main);
+  padding: 2rem 1rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Header Styling */
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: transparent;
+}
+
+header h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin: 0 0 10px 0;
+  background: linear-gradient(90deg, #fff, #a3a3a3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Container */
+.mid-header {
+  width: 90%;
+  max-width: 1200px;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.mid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2.5rem;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* Card Template */
+.template {
+  padding: 1.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.template::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.template:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.template:hover::before {
+  opacity: 0.15;
+}
+
+.template img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.4s ease;
+  background: #111;
+}
+
+.template:hover img {
+  transform: scale(1.03);
+}
+
+.template p {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  width: 100%;
+  text-align: left;
+  color: #fff;
+}
+
+/* Form Styles */
+form {
+  width: 100%;
+  max-width: 650px;
+  margin: 2rem auto;
+  background: var(--card-bg);
+  padding: 3rem;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  background: linear-gradient(90deg, #fff, #a3a3a3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 1.2rem;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-family: 'Inter', sans-serif;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--accent);
+  outline: none;
+  box-shadow: 0 0 15px var(--accent-glow);
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Button Styling */
+button {
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);
+  color: #fff;
+  font-weight: 600;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 210, 255, 0.4);
+  filter: brightness(1.1);
+}
+
+.template button {
+  padding: 0.9rem;
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.btn-preview {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.btn-preview:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(255, 255, 255, 0.1);
+}
+
+#projectsContainer {
+  width: 100%;
+  background: rgba(255,255,255,0.02);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-sizing: border-box;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+#projectsContainer h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.4rem;
+}

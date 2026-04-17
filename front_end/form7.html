@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Executive Pro Portfolio Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Create Executive Portfolio</h1>
+    <form id="portfolioForm">
+      <input type="text" id="name" placeholder="Full Name" required />
+      <input type="text" id="title" placeholder="Professional Title (e.g. Chief Executive Officer)" required />
+      <textarea id="about" placeholder="Executive Summary" required></textarea>
+      
+      <div id="projectsContainer">
+        <h3>Key Initiatives</h3>
+        <input type="text" class="project-title" placeholder="Initiative Title" required />
+        <textarea class="project-desc" placeholder="Details and Impact" required></textarea>
+      </div>
+      <button type="button" onclick="addProject()">+ Add Another Initiative</button>
+      <br><br>
+      <button type="submit">Generate Portfolio</button>
+    </form>
+  </div>
+
+  <script>
+    function addProject() {
+      const container = document.getElementById("projectsContainer");
+      const div = document.createElement("div");
+      div.innerHTML = `
+        <hr style="border-color: rgba(255,255,255,0.1); margin: 15px 0;" />
+        <input type="text" class="project-title" placeholder="Initiative Title" required />
+        <textarea class="project-desc" placeholder="Details and Impact" required></textarea>
+      `;
+      container.appendChild(div);
+    }
+
+    document.getElementById("portfolioForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const title = document.getElementById("title").value;
+      const about = document.getElementById("about").value;
+
+      const titles = document.querySelectorAll(".project-title");
+      const descs = document.querySelectorAll(".project-desc");
+      const projects = Array.from(titles).map((t, i) => ({
+        title: t.value,
+        desc: descs[i].value
+      }));
+
+      const portfolioData = { name, title, about, projects };
+      localStorage.setItem("portfolio7Data", JSON.stringify(portfolioData));
+      
+      window.location.href = "temp7.html";
+    });
+  </script>
+</body>
+</html>

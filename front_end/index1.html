@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style1.css"/>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>MyPortfolio</h1>
+      <ul id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <img src="img/pro.png" alt="Profile Picture" />
+    <h2>Hi, I'm <span class="highlight" id="user_name">your name</span></h2>
+    <p id="user_tagline">A passionate Web Developer and Cyber Enthusiast.</p>
+  </section>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p id="about">I am a 3rd-year Computer Science Engineering student who loves building web apps and solving real-world problems with code.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul class="skills-list" id="skillsList">
+      <!-- Dynamically generated -->
+    </ul>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-container" id="projectContainer">
+      <!-- Dynamically generated -->
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contactForm">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 . All rights reserved.</p>
+  </footer>
+
+  <script src="script1.js"></script>
+</body>
+</html>

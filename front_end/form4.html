@@ -1,0 +1,108 @@
+<!-- form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Your Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f2027;
+      color: #f2f2f2;
+      padding: 40px;
+    }
+    form {
+      max-width: 800px;
+      margin: auto;
+      background: #1c1c1c;
+      padding: 30px;
+      border-radius: 10px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      background: #222;
+      color: #fff;
+      border: 1px solid #333;
+      border-radius: 5px;
+    }
+    button {
+      background: #00ffe7;
+      color: #000;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    h2 {
+      color: #00ffe7;
+    }
+  </style>
+</head>
+<body>
+  <form id="portfolioForm">
+    <h2>Personal Info</h2>
+    <input type="text" id="name" placeholder="Your Name" required />
+    <input type="text" id="title" placeholder="Your Title (e.g., Creative Web Developer)" required />
+    <textarea id="about" placeholder="Short Bio/About You" required></textarea>
+
+    <h2>Contact Info</h2>
+    <input type="email" id="email" placeholder="Email" required />
+    <input type="text" id="location" placeholder="Location" required />
+
+    <h2>Skills (comma separated)</h2>
+    <input type="text" id="skills" placeholder="e.g., HTML, CSS, JavaScript, React" required />
+
+    <h2>Projects</h2>
+    <div id="projectsContainer">
+      <input type="text" class="project-title" placeholder="Project Title" required />
+      <textarea class="project-desc" placeholder="Project Description" required></textarea>
+    </div>
+    <button type="button" onclick="addProject()">+ Add Another Project</button>
+
+    <br><br>
+    <button type="submit">Generate My Portfolio</button>
+  </form>
+
+  <script>
+    function addProject() {
+      const container = document.getElementById('projectsContainer');
+      const div = document.createElement('div');
+      div.innerHTML = `
+        <input type="text" class="project-title" placeholder="Project Title" required />
+        <textarea class="project-desc" placeholder="Project Description" required></textarea>
+      `;
+      container.appendChild(div);
+    }
+
+    document.getElementById('portfolioForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const title = document.getElementById('title').value;
+      const about = document.getElementById('about').value;
+      const email = document.getElementById('email').value;
+      const location = document.getElementById('location').value;
+      const skills = document.getElementById('skills').value.split(',').map(s => s.trim());
+
+      const titles = document.querySelectorAll('.project-title');
+      const descs = document.querySelectorAll('.project-desc');
+      const projects = Array.from(titles).map((title, i) => ({
+        title: title.value,
+        desc: descs[i].value
+      }));
+
+      const userData = {
+        name, title, about, email, location, skills, projects
+      };
+
+      localStorage.setItem('portfolioData', JSON.stringify(userData));
+      window.location.href = 'temp4.html'; // your final portfolio page
+    });
+  </script>
+</body>
+</html>

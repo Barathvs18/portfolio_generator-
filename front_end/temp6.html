@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Premium Glass Portfolio</title>
+  <link rel="stylesheet" href="style6.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="background-orbs"></div>
+  <div class="glass-container">
+    <header>
+      <h1 id="user-name">Your Name</h1>
+      <h2 id="user-role">Your Role</h2>
+    </header>
+
+    <section class="bio section-card">
+      <h3>About Me</h3>
+      <p id="user-about">Your bio here.</p>
+    </section>
+
+    <section class="skills section-card">
+      <h3>Expertise</h3>
+      <div id="skills-list" class="badges"></div>
+    </section>
+
+    <section class="projects section-card">
+      <h3>Selected Works</h3>
+      <div id="projects-list" class="grid"></div>
+    </section>
+  </div>
+
+  <script>
+    const data = JSON.parse(localStorage.getItem('portfolio6Data'));
+    if (data) {
+      document.getElementById('user-name').textContent = data.name;
+      document.getElementById('user-role').textContent = data.role;
+      document.getElementById('user-about').textContent = data.about;
+
+      const skillsList = document.getElementById('skills-list');
+      data.skills.forEach(skill => {
+        const span = document.createElement('span');
+        span.className = 'badge';
+        span.textContent = skill;
+        skillsList.appendChild(span);
+      });
+
+      const projectsList = document.getElementById('projects-list');
+      data.projects.forEach(proj => {
+        const div = document.createElement('div');
+        div.className = 'project-card';
+        div.innerHTML = `<h4>${proj.title}</h4><p>${proj.desc}</p>`;
+        projectsList.appendChild(div);
+      });
+    } else {
+      document.getElementById('user-name').textContent = "Alex Mercer";
+      document.getElementById('user-role').textContent = "Full Stack Engineer";
+      document.getElementById('user-about').textContent = "I build premium web applications using modern technologies. Passionate about user experience, performant code, and elegant design.";
+      document.getElementById('skills-list').innerHTML = "<span class='badge'>HTML</span><span class='badge'>CSS</span><span class='badge'>JavaScript</span><span class='badge'>React</span><span class='badge'>Node.js</span>";
+      document.getElementById('projects-list').innerHTML = "<div class='project-card'><h4>Glassmorphism UI</h4><p>A premium design template featuring dynamic blurring and smooth interactions.</p></div><div class='project-card'><h4>FinTech Dashboard</h4><p>Real-time data visualization platform with high-performance charts.</p></div>";
+    }
+  </script>
+</body>
+</html>

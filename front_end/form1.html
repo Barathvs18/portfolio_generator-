@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Create Your Portfolio</h1>
+    <form id="portfolioForm">
+      <input type="text" id="fullName" placeholder="Your Name" required />
+      <input type="text" id="tagline" placeholder="Short Title (e.g. Web Dev, Cyber)" required />
+      <textarea id="about" placeholder="About You" required></textarea>
+
+      <input type="text" id="skills" placeholder="Skills (comma separated)" required />
+
+      <h3>Projects</h3>
+      <div id="projectsContainer">
+        <input type="text" class="project-title" placeholder="Project Title" required />
+        <textarea class="project-desc" placeholder="Project Description" required></textarea>
+      </div>
+      <button type="button" onclick="addProject()">+ Add Another Project</button>
+
+      <button type="submit">Generate Portfolio</button>
+    </form>
+  </div>
+
+  <script>
+    function addProject() {
+      const container = document.getElementById('projectsContainer');
+      const div = document.createElement('div');
+      div.innerHTML = `
+        <input type="text" class="project-title" placeholder="Project Title" required />
+        <textarea class="project-desc" placeholder="Project Description" required></textarea>
+      `;
+      container.appendChild(div);
+    }
+
+    document.getElementById('portfolioForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('fullName').value;
+      const tagline = document.getElementById('tagline').value;
+      const about = document.getElementById('about').value;
+      const skills = document.getElementById('skills').value.split(',').map(s => s.trim());
+
+      const titles = document.querySelectorAll('.project-title');
+      const descs = document.querySelectorAll('.project-desc');
+
+      const projects = Array.from(titles).map((title, i) => ({
+        title: title.value,
+        desc: descs[i].value
+      }));
+
+      const portfolioData = { name, tagline, about, skills, projects };
+
+      localStorage.setItem('portfolioUserData', JSON.stringify(portfolioData));
+
+      window.location.href = "index1.html";
+    });
+  </script>
+</body>
+</html>

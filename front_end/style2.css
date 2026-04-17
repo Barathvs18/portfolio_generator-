@@ -1,0 +1,138 @@
+/* Dark Glass Theme */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: #e0f7fa;
+  scroll-behavior: smooth;
+}
+
+nav {
+  background: rgba(0,0,0,0.8);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #00e5ff;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #e0f7fa;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #00e5ff;
+}
+
+.hero {
+  align-items: center;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.profile-pic {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 3px solid #00e5ff;
+  margin-bottom: 1rem;
+}
+
+.hero h1 span {
+  color: #00e5ff;
+}
+
+section {
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 2rem;
+  margin: 1rem 0;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 10px rgba(0,229,255,0.2);
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skills-list li {
+  background: #00e5ff;
+  color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.project-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.project {
+  background: rgba(255,255,255,0.1);
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #00e5ff33;
+  transition: transform 0.2s;
+}
+
+.project:hover {
+  transform: scale(1.03);
+}
+
+form input, form textarea {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: none;
+  background: #eee;
+}
+
+form button {
+  background: #00e5ff;
+  color: #000;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  background: rgba(0, 0, 0, 0.8);
+  color: #ccc;
+}
